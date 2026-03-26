@@ -1,0 +1,23 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProveedoresModule = void 0;
+const common_1 = require("@nestjs/common");
+const proveedores_controllers_1 = require("./proveedores.controllers");
+const proveedores_service_1 = require("./proveedores.service");
+const common_2 = require("../../common");
+let ProveedoresModule = class ProveedoresModule {
+};
+exports.ProveedoresModule = ProveedoresModule;
+exports.ProveedoresModule = ProveedoresModule = __decorate([
+    (0, common_1.Module)({
+        controllers: [proveedores_controllers_1.ProveedoresController],
+        providers: [proveedores_service_1.ProveedoresService, common_2.PrismaExceptionHandlerService],
+    })
+], ProveedoresModule);
+//# sourceMappingURL=proveedores.module.js.map
