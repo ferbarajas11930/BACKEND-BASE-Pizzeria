@@ -24,16 +24,19 @@ export class ProveedoresService {
     }
 
     async findAll(paginationDto: PaginationDto) {
-        const totalPaginas = await this.prisma.proovedores.count({})
+        // Contar solo los proveedores disponibles
+        const totalPaginas = await this.prisma.proovedores.count({
+            where: { disponible: true }  // Filtro de Soft Delete
+        })
         const paginaActual = paginationDto.page || 1;
         const porPagina = paginationDto.limit || 10;
+
         return {
             data: await this.prisma.proovedores.findMany({
                 skip: (paginaActual - 1) * porPagina,
                 take: porPagina,
-                orderBy: {
-                    nombreProveedor: 'asc'
-                }
+                where: { disponible: true }, // Filtro de Soft Delete
+                orderBy: { nombreProveedor: 'asc' }
             }),
             meta: {
                 total: totalPaginas,
@@ -41,16 +44,19 @@ export class ProveedoresService {
                 registro: porPagina,
                 totalPaginas: Math.ceil(totalPaginas / porPagina)
             }
-
         }
     }
 
     async findOne(id: string) {
-        const proveedor = await this.prisma.proovedores.findUnique({ where: { id } })
+        // Buscar proveedor que esté disponible
+        const proveedor = await this.prisma.proovedores.findFirst({
+            where: { id, disponible: true }  // Filtro de Soft Delete
+        })
+
         if (!proveedor) {
             throw {
                 statusCode: HttpStatus.NOT_FOUND,
-                message: ` Proveedor con el ID ${id} no encontrado`
+                message: `Proveedor con el ID ${id} no encontrado o no está disponible`
             }
         }
         return proveedor;
@@ -70,10 +76,17 @@ export class ProveedoresService {
 
     async remove(id: string) {
         try {
-            return await this.prisma.proovedores.delete({ where: { id } })
+            // Verificamos primero si existe y está disponible
+            await this.findOne(id);
+
+            // Actualizamos el campo disponible a false en lugar de borrar
+            return await this.prisma.proovedores.update({
+                where: { id },
+                data: { disponible: false }  // Filtro de Soft Delete
+            });
         } catch (error) {
             this.prismaExceptionHandlerService.handleDBException(error);
-            throw error
+            throw error;
         }
     }
 }

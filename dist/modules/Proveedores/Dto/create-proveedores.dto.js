@@ -12,6 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateProveedoresDto = void 0;
 const class_validator_1 = require("class-validator");
 class CreateProveedoresDto {
+    constructor() {
+        this.disponible = true;
+    }
 }
 exports.CreateProveedoresDto = CreateProveedoresDto;
 __decorate([
@@ -38,4 +41,9 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateProveedoresDto.prototype, "tipoProducto", void 0);
+__decorate([
+    (0, class_validator_1.IsBoolean)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Boolean)
+], CreateProveedoresDto.prototype, "disponible", void 0);
 //# sourceMappingURL=create-proveedores.dto.js.map

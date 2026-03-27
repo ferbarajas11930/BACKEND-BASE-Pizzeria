@@ -5,4 +5,5 @@ export declare class CreateProveedoresDto {
     rfcProveedor: string;
     emailProveedor: string;
     tipoProducto: string;
+    disponible: boolean;
 }

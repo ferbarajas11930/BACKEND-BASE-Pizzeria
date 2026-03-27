@@ -1,4 +1,4 @@
-import { IsString } from "class-validator";
+import { IsBoolean, IsOptional, IsString } from "class-validator";
 
 export class CreateProveedoresDto {
 
@@ -20,5 +20,8 @@ export class CreateProveedoresDto {
     @IsString()
     tipoProducto: string;
 
+    @IsBoolean()
+    @IsOptional()
+    disponible: boolean = true;
 
 }

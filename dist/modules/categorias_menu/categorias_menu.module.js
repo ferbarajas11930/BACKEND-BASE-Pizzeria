@@ -9,14 +9,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoriasMenuModule = void 0;
 const common_1 = require("@nestjs/common");
 const categorias_menu_service_1 = require("./categorias_menu.service");
-const categorias_menu_controller_1 = require("./categorias_menu.controller");
+const categorias_menu_controllers_1 = require("./categorias_menu.controllers");
+const common_2 = require("../../common");
 let CategoriasMenuModule = class CategoriasMenuModule {
 };
 exports.CategoriasMenuModule = CategoriasMenuModule;
 exports.CategoriasMenuModule = CategoriasMenuModule = __decorate([
     (0, common_1.Module)({
-        controllers: [categorias_menu_controller_1.CategoriasMenuController],
-        providers: [categorias_menu_service_1.CategoriasMenuService],
+        controllers: [categorias_menu_controllers_1.CategoriasMenuController],
+        providers: [categorias_menu_service_1.CategoriasMenuService, common_2.PrismaExceptionHandlerService],
     })
 ], CategoriasMenuModule);
 //# sourceMappingURL=categorias_menu.module.js.map

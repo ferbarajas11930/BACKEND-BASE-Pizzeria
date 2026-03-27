@@ -14,6 +14,7 @@ export declare class ProveedoresService {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     }>;
     findAll(paginationDto: PaginationDto): Promise<{
         data: {
@@ -24,6 +25,7 @@ export declare class ProveedoresService {
             rfcProveedor: string;
             emailProveedor: string;
             tipoProducto: string;
+            disponible: boolean | null;
         }[];
         meta: {
             total: number;
@@ -40,6 +42,7 @@ export declare class ProveedoresService {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     }>;
     update(id: string, updateProveedorDto: UpdateProveedoresDto): Promise<{
         id: string;
@@ -49,6 +52,7 @@ export declare class ProveedoresService {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     } | undefined>;
     remove(id: string): Promise<{
         id: string;
@@ -58,5 +62,6 @@ export declare class ProveedoresService {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     }>;
 }

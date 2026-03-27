@@ -29,20 +29,20 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-model Proovedores{
-  id String @id @default(uuid())
-  nombreProveedor String 
-  telefonoProveedor String
+model Proovedores {
+  id                 String  @id @default(uuid())
+  nombreProveedor    String 
+  telefonoProveedor  String  
   domicilioProveedor String
-  rfcProveedor String
-  emailProveedor String
-  tipoProducto String 
+  rfcProveedor       String
+  emailProveedor     String
+  tipoProducto       String 
+  disponible         Boolean?
 }
 
 model CategoriaMenu{
   id String @id @default(uuid())
   nombreCategoria String
   descripcion String
-  disponible Boolean
 }
 

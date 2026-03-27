@@ -30,16 +30,17 @@ let ProveedoresService = class ProveedoresService {
         }
     }
     async findAll(paginationDto) {
-        const totalPaginas = await this.prisma.proovedores.count({});
+        const totalPaginas = await this.prisma.proovedores.count({
+            where: { disponible: true }
+        });
         const paginaActual = paginationDto.page || 1;
         const porPagina = paginationDto.limit || 10;
         return {
             data: await this.prisma.proovedores.findMany({
                 skip: (paginaActual - 1) * porPagina,
                 take: porPagina,
-                orderBy: {
-                    nombreProveedor: 'asc'
-                }
+                where: { disponible: true },
+                orderBy: { nombreProveedor: 'asc' }
             }),
             meta: {
                 total: totalPaginas,
@@ -50,11 +51,13 @@ let ProveedoresService = class ProveedoresService {
         };
     }
     async findOne(id) {
-        const proveedor = await this.prisma.proovedores.findUnique({ where: { id } });
+        const proveedor = await this.prisma.proovedores.findFirst({
+            where: { id, disponible: true }
+        });
         if (!proveedor) {
             throw {
                 statusCode: common_1.HttpStatus.NOT_FOUND,
-                message: ` Proveedor con el ID ${id} no encontrado`
+                message: `Proveedor con el ID ${id} no encontrado o no está disponible`
             };
         }
         return proveedor;
@@ -72,7 +75,11 @@ let ProveedoresService = class ProveedoresService {
     }
     async remove(id) {
         try {
-            return await this.prisma.proovedores.delete({ where: { id } });
+            await this.findOne(id);
+            return await this.prisma.proovedores.update({
+                where: { id },
+                data: { disponible: false }
+            });
         }
         catch (error) {
             this.prismaExceptionHandlerService.handleDBException(error);

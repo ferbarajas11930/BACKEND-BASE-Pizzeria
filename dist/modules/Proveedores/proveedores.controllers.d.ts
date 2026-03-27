@@ -13,6 +13,7 @@ export declare class ProveedoresController {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     }>;
     findAll(PaginationDto: PaginationDto): Promise<{
         data: {
@@ -23,6 +24,7 @@ export declare class ProveedoresController {
             rfcProveedor: string;
             emailProveedor: string;
             tipoProducto: string;
+            disponible: boolean | null;
         }[];
         meta: {
             total: number;
@@ -39,6 +41,7 @@ export declare class ProveedoresController {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     }>;
     update(id: string, updateProveedores: UpdateProveedoresDto): Promise<{
         id: string;
@@ -48,6 +51,7 @@ export declare class ProveedoresController {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     } | undefined>;
     remove(id: string): Promise<{
         id: string;
@@ -57,5 +61,6 @@ export declare class ProveedoresController {
         rfcProveedor: string;
         emailProveedor: string;
         tipoProducto: string;
+        disponible: boolean | null;
     }>;
 }
