@@ -30,19 +30,36 @@ model User {
 }
 
 model Proovedores {
-  id                 String  @id @default(uuid())
-  nombreProveedor    String 
-  telefonoProveedor  String  
+  id                 String   @id @default(uuid())
+  nombreProveedor    String
+  telefonoProveedor  String
   domicilioProveedor String
   rfcProveedor       String
   emailProveedor     String
-  tipoProducto       String 
+  tipoProducto       String
   disponible         Boolean?
 }
 
-model CategoriaMenu{
-  id String @id @default(uuid())
+model CategoriaMenu {
+  id              String   @id @default(uuid())
   nombreCategoria String
-  descripcion String
+  descripcion     String
+  disponible      Boolean  @default(true)
+  menus           Menu[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
 }
 
+model Menu {
+  id           String        @id @default(uuid())
+  nombre       String
+  precio       Float
+  ingredientes String[]      @default([])
+  tamano       String
+  disponible   Boolean       @default(true)
+  categoria    CategoriaMenu @relation(fields: [categoriaId], references: [id])
+  categoriaId  String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}

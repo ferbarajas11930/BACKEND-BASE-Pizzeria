@@ -30,30 +30,29 @@ let CategoriasMenuService = class CategoriasMenuService {
         }
     }
     async findAll() {
-        const totalPaginas = await this.prisma.categoriaMenu.count({});
+        const totalPaginas = await this.prisma.categoriaMenu.count({
+            where: { disponible: true }
+        });
         const paginaActual = 1;
         const porPagina = 10;
         return {
             data: await this.prisma.categoriaMenu.findMany({
                 skip: (paginaActual - 1) * porPagina,
                 take: porPagina,
-                orderBy: {
-                    nombreCategoria: 'asc'
-                }
+                where: { disponible: true },
+                orderBy: { nombreCategoria: 'asc' }
             }),
-            meta: {
-                totalPaginas,
-                paginaActual,
-                porPagina
-            }
+            meta: { totalPaginas, paginaActual, porPagina }
         };
     }
     async findOne(id) {
-        const categoriaMenu = await this.prisma.categoriaMenu.findUnique({ where: { id } });
+        const categoriaMenu = await this.prisma.categoriaMenu.findFirst({
+            where: { id, disponible: true }
+        });
         if (!categoriaMenu) {
             throw {
                 statusCode: common_1.HttpStatus.NOT_FOUND,
-                message: `Categoria Menu con el ID ${id} no encontrado`
+                message: `Categoria Menu con el ID ${id} no encontrada o no disponible`
             };
         }
         return categoriaMenu;
@@ -69,9 +68,13 @@ let CategoriasMenuService = class CategoriasMenuService {
             return this.prismaExceptionHandlerService.handleDBException(error);
         }
     }
-    remove(id) {
+    async remove(id) {
         try {
-            return this.prisma.categoriaMenu.delete({ where: { id } });
+            await this.findOne(id);
+            return await this.prisma.categoriaMenu.update({
+                where: { id },
+                data: { disponible: false }
+            });
         }
         catch (error) {
             return this.prismaExceptionHandlerService.handleDBException(error);

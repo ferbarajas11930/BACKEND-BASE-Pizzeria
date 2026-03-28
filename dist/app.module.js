@@ -19,6 +19,7 @@ const auth_module_1 = require("./auth/auth.module");
 const users_module_1 = require("./users/users.module");
 const proveedores_module_1 = require("./modules/Proveedores/proveedores.module");
 const categorias_menu_module_1 = require("./modules/categorias_menu/categorias_menu.module");
+const menu_module_1 = require("./modules/menu/menu.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -39,6 +40,7 @@ exports.AppModule = AppModule = __decorate([
             users_module_1.UsersModule,
             proveedores_module_1.ProveedoresModule,
             categorias_menu_module_1.CategoriasMenuModule,
+            menu_module_1.MenuModule,
         ],
         controllers: [],
         providers: [],

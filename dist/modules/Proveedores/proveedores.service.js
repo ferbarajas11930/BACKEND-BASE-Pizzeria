@@ -14,9 +14,9 @@ const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../database/prisma.service");
 const common_2 = require("../../common");
 let ProveedoresService = class ProveedoresService {
-    constructor(prisma, prismaExceptionHandlerService) {
+    constructor(prisma, prismaExceptionHandler) {
         this.prisma = prisma;
-        this.prismaExceptionHandlerService = prismaExceptionHandlerService;
+        this.prismaExceptionHandler = prismaExceptionHandler;
     }
     async create(createProvedorDto) {
         try {
@@ -26,7 +26,7 @@ let ProveedoresService = class ProveedoresService {
             return proveedor;
         }
         catch (error) {
-            return this.prismaExceptionHandlerService.handleDBException(error);
+            return this.prismaExceptionHandler.handleDBException(error);
         }
     }
     async findAll(paginationDto) {
@@ -70,7 +70,7 @@ let ProveedoresService = class ProveedoresService {
             });
         }
         catch (error) {
-            this.prismaExceptionHandlerService.handleDBException(error);
+            this.prismaExceptionHandler.handleDBException(error);
         }
     }
     async remove(id) {
@@ -82,7 +82,7 @@ let ProveedoresService = class ProveedoresService {
             });
         }
         catch (error) {
-            this.prismaExceptionHandlerService.handleDBException(error);
+            this.prismaExceptionHandler.handleDBException(error);
             throw error;
         }
     }

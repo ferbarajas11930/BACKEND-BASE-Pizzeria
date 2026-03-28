@@ -1,6 +1,5 @@
-
 import { Module } from "@nestjs/common";
-import { ProveedoresController } from "./proveedores.controllers";
+import { ProveedoresController } from "./proveedores.controller";
 import { ProveedoresService } from "./proveedores.service";
 import { PrismaExceptionHandlerService } from "src/common";
 

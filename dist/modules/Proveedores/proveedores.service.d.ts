@@ -4,8 +4,8 @@ import { PrismaService } from "src/database/prisma.service";
 import { PaginationDto, PrismaExceptionHandlerService } from "src/common";
 export declare class ProveedoresService {
     private readonly prisma;
-    private readonly prismaExceptionHandlerService;
-    constructor(prisma: PrismaService, prismaExceptionHandlerService: PrismaExceptionHandlerService);
+    private readonly prismaExceptionHandler;
+    constructor(prisma: PrismaService, prismaExceptionHandler: PrismaExceptionHandlerService);
     create(createProvedorDto: CreateProveedoresDto): Promise<import("@nestjs/common").HttpException | {
         id: string;
         nombreProveedor: string;

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { CategoriasMenuService } from './categorias_menu.service';
-import { CategoriasMenuController } from './categorias_menu.controllers';
+import { CategoriasMenuController } from './categorias_menu.controller';
 import { PrismaExceptionHandlerService } from 'src/common';
 
 @Module({

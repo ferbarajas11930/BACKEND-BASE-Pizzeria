@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ProveedoresModule } from './modules/Proveedores/proveedores.module';
 import { CategoriasMenuModule } from './modules/categorias_menu/categorias_menu.module';
+import { MenuModule } from './modules/menu/menu.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { CategoriasMenuModule } from './modules/categorias_menu/categorias_menu.
     UsersModule,
     ProveedoresModule,
     CategoriasMenuModule,
+    MenuModule,
   ],
   controllers: [],
   providers: [],

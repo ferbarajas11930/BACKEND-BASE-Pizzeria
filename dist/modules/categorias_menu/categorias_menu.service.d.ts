@@ -8,12 +8,18 @@ export declare class CategoriasMenuService {
     constructor(prisma: PrismaService, prismaExceptionHandlerService: PrismaExceptionHandlerService);
     create(createCategoriasMenuDto: CreateCategoriasMenuDto): Promise<import("@nestjs/common").HttpException | {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombreCategoria: string;
         descripcion: string;
     }>;
     findAll(): Promise<{
         data: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            disponible: boolean;
             nombreCategoria: string;
             descripcion: string;
         }[];
@@ -25,17 +31,26 @@ export declare class CategoriasMenuService {
     }>;
     findOne(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombreCategoria: string;
         descripcion: string;
     }>;
     update(id: string, updateCategoriasMenuDto: UpdateCategoriasMenuDto): Promise<import("@nestjs/common").HttpException | {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombreCategoria: string;
         descripcion: string;
     }>;
-    remove(id: string): import("@nestjs/common").HttpException | import("@prisma/client").Prisma.Prisma__CategoriaMenuClient<{
+    remove(id: string): Promise<import("@nestjs/common").HttpException | {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombreCategoria: string;
         descripcion: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+    }>;
 }

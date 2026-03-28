@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProveedoresModule = void 0;
 const common_1 = require("@nestjs/common");
-const proveedores_controllers_1 = require("./proveedores.controllers");
+const proveedores_controller_1 = require("./proveedores.controller");
 const proveedores_service_1 = require("./proveedores.service");
 const common_2 = require("../../common");
 let ProveedoresModule = class ProveedoresModule {
@@ -16,7 +16,7 @@ let ProveedoresModule = class ProveedoresModule {
 exports.ProveedoresModule = ProveedoresModule;
 exports.ProveedoresModule = ProveedoresModule = __decorate([
     (0, common_1.Module)({
-        controllers: [proveedores_controllers_1.ProveedoresController],
+        controllers: [proveedores_controller_1.ProveedoresController],
         providers: [proveedores_service_1.ProveedoresService, common_2.PrismaExceptionHandlerService],
     })
 ], ProveedoresModule);

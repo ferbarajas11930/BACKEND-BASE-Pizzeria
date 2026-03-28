@@ -9,6 +9,7 @@ nombreCategoria: string;
 descripcion: string;
 
 @IsOptional()
-disponible: boolean=true;
+@IsBoolean()
+disponible?: boolean = true;
 
 }

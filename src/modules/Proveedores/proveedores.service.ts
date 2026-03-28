@@ -9,7 +9,7 @@ export class ProveedoresService {
 
     constructor(
         private readonly prisma: PrismaService,
-        private readonly prismaExceptionHandlerService: PrismaExceptionHandlerService
+        private readonly prismaExceptionHandler: PrismaExceptionHandlerService
     ) { }
 
     async create(createProvedorDto: CreateProveedoresDto) {
@@ -19,7 +19,7 @@ export class ProveedoresService {
             })
             return proveedor;
         } catch (error) {
-            return this.prismaExceptionHandlerService.handleDBException(error);
+            return this.prismaExceptionHandler.handleDBException(error);
         }
     }
 
@@ -70,7 +70,7 @@ export class ProveedoresService {
 
             })
         } catch (error) {
-            this.prismaExceptionHandlerService.handleDBException(error);
+            this.prismaExceptionHandler.handleDBException(error);
         }
     }
 
@@ -85,7 +85,7 @@ export class ProveedoresService {
                 data: { disponible: false }  // Filtro de Soft Delete
             });
         } catch (error) {
-            this.prismaExceptionHandlerService.handleDBException(error);
+            this.prismaExceptionHandler.handleDBException(error);
             throw error;
         }
     }
