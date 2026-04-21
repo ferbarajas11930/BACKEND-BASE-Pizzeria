@@ -1,0 +1,144 @@
+import { CreateTicketDto } from './dto/create-ticket.dto';
+import { UpdateTicketDto } from './dto/update-ticket.dto';
+import { PrismaService } from 'src/database/prisma.service';
+import { PaginationDto, PrismaExceptionHandlerService } from 'src/common';
+export declare class TicketsService {
+    private readonly prisma;
+    private readonly prismaExceptionHandler;
+    constructor(prisma: PrismaService, prismaExceptionHandler: PrismaExceptionHandlerService);
+    create(createTicketDto: CreateTicketDto): Promise<import("@nestjs/common").HttpException | ({
+        pedido: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            disponible: boolean;
+            estado: import("@prisma/client").$Enums.EstadoPedido;
+            fechaHora: Date;
+            numeroPedido: number;
+            numeroMesa: number | null;
+            clienteId: string;
+            sucursalId: string;
+            tipoEntrega: import("@prisma/client").$Enums.TipoEntrega;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        pedidoId: string;
+        subtotal: number;
+        iva: number;
+        total: number;
+        descuento: number;
+        tarifaEnvio: number;
+        numeroTicket: number;
+        fechaHora: Date;
+    })>;
+    findAll(paginationDto: PaginationDto): Promise<{
+        data: ({
+            pedido: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                disponible: boolean;
+                estado: import("@prisma/client").$Enums.EstadoPedido;
+                fechaHora: Date;
+                numeroPedido: number;
+                numeroMesa: number | null;
+                clienteId: string;
+                sucursalId: string;
+                tipoEntrega: import("@prisma/client").$Enums.TipoEntrega;
+            };
+            caja: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                ticketId: string;
+                formaPago: import("@prisma/client").$Enums.FormaPago;
+                referenciaPago: string | null;
+                numeroCaja: number;
+                fechaPago: Date;
+            } | null;
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            pedidoId: string;
+            subtotal: number;
+            iva: number;
+            total: number;
+            descuento: number;
+            tarifaEnvio: number;
+            numeroTicket: number;
+            fechaHora: Date;
+        })[];
+        meta: {
+            total: number;
+            pagina: number;
+            registros: number;
+            totalPaginas: number;
+        };
+    }>;
+    findOne(id: string): Promise<{
+        pedido: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            disponible: boolean;
+            estado: import("@prisma/client").$Enums.EstadoPedido;
+            fechaHora: Date;
+            numeroPedido: number;
+            numeroMesa: number | null;
+            clienteId: string;
+            sucursalId: string;
+            tipoEntrega: import("@prisma/client").$Enums.TipoEntrega;
+        };
+        caja: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            ticketId: string;
+            formaPago: import("@prisma/client").$Enums.FormaPago;
+            referenciaPago: string | null;
+            numeroCaja: number;
+            fechaPago: Date;
+        } | null;
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        pedidoId: string;
+        subtotal: number;
+        iva: number;
+        total: number;
+        descuento: number;
+        tarifaEnvio: number;
+        numeroTicket: number;
+        fechaHora: Date;
+    }>;
+    update(id: string, updateTicketDto: UpdateTicketDto): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        pedidoId: string;
+        subtotal: number;
+        iva: number;
+        total: number;
+        descuento: number;
+        tarifaEnvio: number;
+        numeroTicket: number;
+        fechaHora: Date;
+    }>;
+    remove(id: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        pedidoId: string;
+        subtotal: number;
+        iva: number;
+        total: number;
+        descuento: number;
+        tarifaEnvio: number;
+        numeroTicket: number;
+        fechaHora: Date;
+    }>;
+}

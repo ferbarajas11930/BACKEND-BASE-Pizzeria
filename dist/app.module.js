@@ -21,6 +21,13 @@ const proveedores_module_1 = require("./modules/Proveedores/proveedores.module")
 const categorias_menu_module_1 = require("./modules/categorias_menu/categorias_menu.module");
 const menu_module_1 = require("./modules/menu/menu.module");
 const info_pizzeria_module_1 = require("./modules/info-pizzeria/info-pizzeria.module");
+const clientes_module_1 = require("./modules/clientes/clientes.module");
+const sucursales_module_1 = require("./modules/sucursales/sucursales.module");
+const tickets_module_1 = require("./modules/tickets/tickets.module");
+const cajas_module_1 = require("./modules/cajas/cajas.module");
+const empleados_module_1 = require("./modules/empleados/empleados.module");
+const detalle_pedido_module_1 = require("./modules/detalle-pedido/detalle-pedido.module");
+const pedidos_module_1 = require("./modules/pedidos/pedidos.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -43,6 +50,13 @@ exports.AppModule = AppModule = __decorate([
             categorias_menu_module_1.CategoriasMenuModule,
             menu_module_1.MenuModule,
             info_pizzeria_module_1.InfoPizzeriaModule,
+            clientes_module_1.ClientesModule,
+            sucursales_module_1.SucursalesModule,
+            tickets_module_1.TicketsModule,
+            cajas_module_1.CajasModule,
+            empleados_module_1.EmpleadosModule,
+            detalle_pedido_module_1.DetallePedidoModule,
+            pedidos_module_1.PedidosModule
         ],
         controllers: [],
         providers: [],

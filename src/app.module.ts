@@ -12,6 +12,13 @@ import { ProveedoresModule } from './modules/Proveedores/proveedores.module';
 import { CategoriasMenuModule } from './modules/categorias_menu/categorias_menu.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { InfoPizzeriaModule } from './modules/info-pizzeria/info-pizzeria.module';
+import { ClientesModule } from './modules/clientes/clientes.module';
+import { SucursalesModule } from './modules/sucursales/sucursales.module';
+import { TicketsModule } from './modules/tickets/tickets.module';
+import { CajasModule } from './modules/cajas/cajas.module';
+import { EmpleadosModule } from './modules/empleados/empleados.module';
+import { DetallePedidoModule } from './modules/detalle-pedido/detalle-pedido.module';
+import { PedidosModule } from './modules/pedidos/pedidos.module';
 
 @Module({
   imports: [
@@ -31,6 +38,13 @@ import { InfoPizzeriaModule } from './modules/info-pizzeria/info-pizzeria.module
     CategoriasMenuModule,
     MenuModule,
     InfoPizzeriaModule,
+    ClientesModule,
+    SucursalesModule,
+    TicketsModule,
+    CajasModule,
+    EmpleadosModule,
+    DetallePedidoModule,
+    PedidosModule
   ],
   controllers: [],
   providers: [],
