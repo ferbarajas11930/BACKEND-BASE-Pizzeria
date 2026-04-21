@@ -12,13 +12,13 @@ export declare class CajasService {
             createdAt: Date;
             updatedAt: Date;
             pedidoId: string;
+            descuento: number;
+            tarifaEnvio: number;
+            fechaHora: Date;
+            numeroTicket: number;
             subtotal: number;
             iva: number;
             total: number;
-            descuento: number;
-            tarifaEnvio: number;
-            numeroTicket: number;
-            fechaHora: Date;
         };
     } & {
         id: string;
@@ -37,13 +37,13 @@ export declare class CajasService {
                 createdAt: Date;
                 updatedAt: Date;
                 pedidoId: string;
+                descuento: number;
+                tarifaEnvio: number;
+                fechaHora: Date;
+                numeroTicket: number;
                 subtotal: number;
                 iva: number;
                 total: number;
-                descuento: number;
-                tarifaEnvio: number;
-                numeroTicket: number;
-                fechaHora: Date;
             };
         } & {
             id: string;
@@ -68,13 +68,13 @@ export declare class CajasService {
             createdAt: Date;
             updatedAt: Date;
             pedidoId: string;
+            descuento: number;
+            tarifaEnvio: number;
+            fechaHora: Date;
+            numeroTicket: number;
             subtotal: number;
             iva: number;
             total: number;
-            descuento: number;
-            tarifaEnvio: number;
-            numeroTicket: number;
-            fechaHora: Date;
         };
     } & {
         id: string;

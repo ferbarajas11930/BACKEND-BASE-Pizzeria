@@ -4,5 +4,4 @@ export declare class CreateDetallePedidoDto {
     cantidad: number;
     extras?: string[];
     termino: string;
-    precioUnitario: number;
 }

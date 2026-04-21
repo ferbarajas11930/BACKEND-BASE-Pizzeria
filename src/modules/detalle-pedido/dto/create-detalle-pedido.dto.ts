@@ -1,11 +1,4 @@
-import {
-  IsArray,
-  IsInt,
-  IsNumber,
-  IsOptional,
-  IsString,
-  IsUUID,
-} from 'class-validator';
+import { IsArray, IsInt, IsOptional, IsString, IsUUID } from 'class-validator';
 
 export class CreateDetallePedidoDto {
   @IsUUID()
@@ -25,6 +18,5 @@ export class CreateDetallePedidoDto {
   @IsString()
   termino: string;
 
-  @IsNumber()
-  precioUnitario: number;
+  // Se elimina el campo precioUnitario de aquí para evitar entrada manual
 }

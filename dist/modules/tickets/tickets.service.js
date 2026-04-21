@@ -20,8 +20,29 @@ let TicketsService = class TicketsService {
     }
     async create(createTicketDto) {
         try {
+            const pedido = await this.prisma.pedidos.findUnique({
+                where: { id: createTicketDto.pedidoId },
+                include: { detalles: true }
+            });
+            if (!pedido) {
+                throw new common_1.NotFoundException(`Pedido con id ${createTicketDto.pedidoId} no encontrado`);
+            }
+            const subtotal = pedido.detalles.reduce((acc, item) => {
+                return acc + (item.cantidad * item.precioUnitario);
+            }, 0);
+            const iva = subtotal * 0.16;
+            const descuento = createTicketDto.descuento || 0;
+            const envio = createTicketDto.tarifaEnvio || 0;
+            const total = (subtotal + iva + envio) - descuento;
             return await this.prisma.tickets.create({
-                data: createTicketDto,
+                data: {
+                    pedidoId: createTicketDto.pedidoId,
+                    subtotal,
+                    iva,
+                    total,
+                    descuento,
+                    tarifaEnvio: envio
+                },
                 include: { pedido: true },
             });
         }

@@ -20,8 +20,17 @@ let DetallePedidoService = class DetallePedidoService {
     }
     async create(createDetallePedidoDto) {
         try {
+            const producto = await this.prisma.menu.findUnique({
+                where: { id: createDetallePedidoDto.menuId }
+            });
+            if (!producto) {
+                throw new common_1.NotFoundException(`El producto con id ${createDetallePedidoDto.menuId} no existe`);
+            }
             return await this.prisma.detallePedido.create({
-                data: createDetallePedidoDto,
+                data: {
+                    ...createDetallePedidoDto,
+                    precioUnitario: producto.precio,
+                },
                 include: { menu: true, pedido: true },
             });
         }

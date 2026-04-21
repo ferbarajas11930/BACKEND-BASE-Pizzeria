@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateDetallePedidoDto } from './dto/create-detalle-pedido.dto';
 import { UpdateDetallePedidoDto } from './dto/update-detalle-pedido.dto';
 import { PrismaService } from 'src/database/prisma.service';
@@ -9,12 +9,25 @@ export class DetallePedidoService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly prismaExceptionHandler: PrismaExceptionHandlerService,
-  ) {}
+  ) { }
 
   async create(createDetallePedidoDto: CreateDetallePedidoDto) {
     try {
+      // 1. Buscar el producto en el menú para obtener su precio actual
+      const producto = await this.prisma.menu.findUnique({
+        where: { id: createDetallePedidoDto.menuId }
+      });
+
+      if (!producto) {
+        throw new NotFoundException(`El producto con id ${createDetallePedidoDto.menuId} no existe`);
+      }
+
+      // 2. Crear el detalle usando el precio obtenido de la base de datos
       return await this.prisma.detallePedido.create({
-        data: createDetallePedidoDto,
+        data: {
+          ...createDetallePedidoDto,
+          precioUnitario: producto.precio, // Asignación automática del precio
+        },
         include: { menu: true, pedido: true },
       });
     } catch (error) {

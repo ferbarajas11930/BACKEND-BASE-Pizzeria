@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTicketDto } from './dto/create-ticket.dto';
 import { UpdateTicketDto } from './dto/update-ticket.dto';
 import { PrismaService } from 'src/database/prisma.service';
@@ -9,12 +9,37 @@ export class TicketsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly prismaExceptionHandler: PrismaExceptionHandlerService,
-  ) {}
+  ) { }
 
   async create(createTicketDto: CreateTicketDto) {
     try {
+      // 1. Obtener el pedido junto con todos sus detalles registrados
+      const pedido = await this.prisma.pedidos.findUnique({
+        where: { id: createTicketDto.pedidoId },
+        include: { detalles: true }
+      });
+      if (!pedido) {
+        throw new NotFoundException(`Pedido con id ${createTicketDto.pedidoId} no encontrado`);
+      }
+      // 2. Calcular el subtotal (Suma de cantidad * precio de cada detalle)
+      const subtotal = pedido.detalles.reduce((acc, item) => {
+        return acc + (item.cantidad * item.precioUnitario);
+      }, 0);
+      // 3. Definir lógica de impuestos y cargos adicionales
+      const iva = subtotal * 0.16;
+      const descuento = createTicketDto.descuento || 0;
+      const envio = createTicketDto.tarifaEnvio || 0;
+      const total = (subtotal + iva + envio) - descuento;
+      // 4. Crear el registro con los cálculos automáticos
       return await this.prisma.tickets.create({
-        data: createTicketDto,
+        data: {
+          pedidoId: createTicketDto.pedidoId,
+          subtotal,
+          iva,
+          total,
+          descuento,
+          tarifaEnvio: envio
+        },
         include: { pedido: true },
       });
     } catch (error) {

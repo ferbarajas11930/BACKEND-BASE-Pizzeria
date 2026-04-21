@@ -7,33 +7,33 @@ export declare class EmpleadosService {
     private readonly prisma;
     private readonly prismaExceptionHandler;
     constructor(prisma: PrismaService, prismaExceptionHandler: PrismaExceptionHandlerService);
-    create(createEmpleadoDto: CreateEmpleadoDto): Promise<{
+    create(createEmpleadoDto: CreateEmpleadoDto): Promise<import("@nestjs/common").HttpException | {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombre: string;
+        telefono: string;
+        correo: string;
+        sucursalId: string;
         apellido: string;
         puesto: string;
         fechaNacimiento: Date;
         domicilio: string;
-        telefono: string;
-        correo: string;
         numEmergencia: string;
         tipoSangre: string;
         discapacidad: boolean;
         genero: string;
-        sucursalId: string;
-        disponible: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-    } | import("@nestjs/common").HttpException>;
+    }>;
     findAll(paginationDto: PaginationDto): Promise<{
         data: ({
             sucursal: {
                 id: string;
-                nombre: string;
-                telefono: string;
-                disponible: boolean;
                 createdAt: Date;
                 updatedAt: Date;
+                disponible: boolean;
+                nombre: string;
+                telefono: string;
                 direccion: string;
                 responsable: string;
                 municipio: string;
@@ -43,21 +43,21 @@ export declare class EmpleadosService {
             };
         } & {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            disponible: boolean;
             nombre: string;
+            telefono: string;
+            correo: string;
+            sucursalId: string;
             apellido: string;
             puesto: string;
             fechaNacimiento: Date;
             domicilio: string;
-            telefono: string;
-            correo: string;
             numEmergencia: string;
             tipoSangre: string;
             discapacidad: boolean;
             genero: string;
-            sucursalId: string;
-            disponible: boolean;
-            createdAt: Date;
-            updatedAt: Date;
         })[];
         meta: {
             total: number;
@@ -69,11 +69,11 @@ export declare class EmpleadosService {
     findOne(id: string): Promise<{
         sucursal: {
             id: string;
-            nombre: string;
-            telefono: string;
-            disponible: boolean;
             createdAt: Date;
             updatedAt: Date;
+            disponible: boolean;
+            nombre: string;
+            telefono: string;
             direccion: string;
             responsable: string;
             municipio: string;
@@ -83,57 +83,57 @@ export declare class EmpleadosService {
         };
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombre: string;
+        telefono: string;
+        correo: string;
+        sucursalId: string;
         apellido: string;
         puesto: string;
         fechaNacimiento: Date;
         domicilio: string;
-        telefono: string;
-        correo: string;
         numEmergencia: string;
         tipoSangre: string;
         discapacidad: boolean;
         genero: string;
-        sucursalId: string;
-        disponible: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     update(id: string, updateEmpleadoDto: UpdateEmpleadoDto): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombre: string;
+        telefono: string;
+        correo: string;
+        sucursalId: string;
         apellido: string;
         puesto: string;
         fechaNacimiento: Date;
         domicilio: string;
-        telefono: string;
-        correo: string;
         numEmergencia: string;
         tipoSangre: string;
         discapacidad: boolean;
         genero: string;
-        sucursalId: string;
-        disponible: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     remove(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        disponible: boolean;
         nombre: string;
+        telefono: string;
+        correo: string;
+        sucursalId: string;
         apellido: string;
         puesto: string;
         fechaNacimiento: Date;
         domicilio: string;
-        telefono: string;
-        correo: string;
         numEmergencia: string;
         tipoSangre: string;
         discapacidad: boolean;
         genero: string;
-        sucursalId: string;
-        disponible: boolean;
-        createdAt: Date;
-        updatedAt: Date;
     } | {
         statusCode: HttpStatus;
         message: string;

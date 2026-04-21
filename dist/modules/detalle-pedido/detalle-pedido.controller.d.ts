@@ -23,8 +23,8 @@ export declare class DetallePedidoController {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            fechaHora: Date;
             numeroPedido: number;
+            fechaHora: Date;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;
@@ -60,8 +60,8 @@ export declare class DetallePedidoController {
                 updatedAt: Date;
                 disponible: boolean;
                 estado: import("@prisma/client").$Enums.EstadoPedido;
-                fechaHora: Date;
                 numeroPedido: number;
+                fechaHora: Date;
                 numeroMesa: number | null;
                 clienteId: string;
                 sucursalId: string;
@@ -103,8 +103,8 @@ export declare class DetallePedidoController {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            fechaHora: Date;
             numeroPedido: number;
+            fechaHora: Date;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;

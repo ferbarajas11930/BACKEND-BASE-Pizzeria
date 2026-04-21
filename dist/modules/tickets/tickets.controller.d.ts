@@ -12,8 +12,8 @@ export declare class TicketsController {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            fechaHora: Date;
             numeroPedido: number;
+            fechaHora: Date;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;
@@ -24,13 +24,13 @@ export declare class TicketsController {
         createdAt: Date;
         updatedAt: Date;
         pedidoId: string;
+        descuento: number;
+        tarifaEnvio: number;
+        fechaHora: Date;
+        numeroTicket: number;
         subtotal: number;
         iva: number;
         total: number;
-        descuento: number;
-        tarifaEnvio: number;
-        numeroTicket: number;
-        fechaHora: Date;
     })>;
     findAll(paginationDto: PaginationDto): Promise<{
         data: ({
@@ -40,8 +40,8 @@ export declare class TicketsController {
                 updatedAt: Date;
                 disponible: boolean;
                 estado: import("@prisma/client").$Enums.EstadoPedido;
-                fechaHora: Date;
                 numeroPedido: number;
+                fechaHora: Date;
                 numeroMesa: number | null;
                 clienteId: string;
                 sucursalId: string;
@@ -62,13 +62,13 @@ export declare class TicketsController {
             createdAt: Date;
             updatedAt: Date;
             pedidoId: string;
+            descuento: number;
+            tarifaEnvio: number;
+            fechaHora: Date;
+            numeroTicket: number;
             subtotal: number;
             iva: number;
             total: number;
-            descuento: number;
-            tarifaEnvio: number;
-            numeroTicket: number;
-            fechaHora: Date;
         })[];
         meta: {
             total: number;
@@ -84,8 +84,8 @@ export declare class TicketsController {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            fechaHora: Date;
             numeroPedido: number;
+            fechaHora: Date;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;
@@ -106,38 +106,38 @@ export declare class TicketsController {
         createdAt: Date;
         updatedAt: Date;
         pedidoId: string;
+        descuento: number;
+        tarifaEnvio: number;
+        fechaHora: Date;
+        numeroTicket: number;
         subtotal: number;
         iva: number;
         total: number;
-        descuento: number;
-        tarifaEnvio: number;
-        numeroTicket: number;
-        fechaHora: Date;
     }>;
     update(id: string, updateTicketDto: UpdateTicketDto): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
         pedidoId: string;
+        descuento: number;
+        tarifaEnvio: number;
+        fechaHora: Date;
+        numeroTicket: number;
         subtotal: number;
         iva: number;
         total: number;
-        descuento: number;
-        tarifaEnvio: number;
-        numeroTicket: number;
-        fechaHora: Date;
     }>;
     remove(id: string): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
         pedidoId: string;
+        descuento: number;
+        tarifaEnvio: number;
+        fechaHora: Date;
+        numeroTicket: number;
         subtotal: number;
         iva: number;
         total: number;
-        descuento: number;
-        tarifaEnvio: number;
-        numeroTicket: number;
-        fechaHora: Date;
     }>;
 }

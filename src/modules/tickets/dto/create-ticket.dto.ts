@@ -4,15 +4,6 @@ export class CreateTicketDto {
   @IsUUID()
   pedidoId: string;
 
-  @IsNumber()
-  subtotal: number;
-
-  @IsNumber()
-  iva: number;
-
-  @IsNumber()
-  total: number;
-
   @IsOptional()
   @IsNumber()
   descuento?: number;
@@ -20,4 +11,6 @@ export class CreateTicketDto {
   @IsOptional()
   @IsNumber()
   tarifaEnvio?: number;
+
+  // subtotal, iva y total ya no se reciben por el cliente
 }
