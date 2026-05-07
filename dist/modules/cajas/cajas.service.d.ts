@@ -14,8 +14,8 @@ export declare class CajasService {
             pedidoId: string;
             descuento: number;
             tarifaEnvio: number;
-            fechaHora: Date;
             numeroTicket: number;
+            fechaHora: Date;
             subtotal: number;
             iva: number;
             total: number;
@@ -39,8 +39,8 @@ export declare class CajasService {
                 pedidoId: string;
                 descuento: number;
                 tarifaEnvio: number;
-                fechaHora: Date;
                 numeroTicket: number;
+                fechaHora: Date;
                 subtotal: number;
                 iva: number;
                 total: number;
@@ -70,8 +70,8 @@ export declare class CajasService {
             pedidoId: string;
             descuento: number;
             tarifaEnvio: number;
-            fechaHora: Date;
             numeroTicket: number;
+            fechaHora: Date;
             subtotal: number;
             iva: number;
             total: number;

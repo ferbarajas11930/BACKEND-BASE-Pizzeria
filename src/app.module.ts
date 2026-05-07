@@ -19,7 +19,8 @@ import { CajasModule } from './modules/cajas/cajas.module';
 import { EmpleadosModule } from './modules/empleados/empleados.module';
 import { DetallePedidoModule } from './modules/detalle-pedido/detalle-pedido.module';
 import { PedidosModule } from './modules/pedidos/pedidos.module';
-
+import { PrinterModule } from './modules/printer/printer.module';
+import { TicketsReportModule } from './modules/tickets-report/tickets-report.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -44,7 +45,9 @@ import { PedidosModule } from './modules/pedidos/pedidos.module';
     CajasModule,
     EmpleadosModule,
     DetallePedidoModule,
-    PedidosModule
+    PedidosModule,
+    TicketsReportModule,
+    PrinterModule
   ],
   controllers: [],
   providers: [],

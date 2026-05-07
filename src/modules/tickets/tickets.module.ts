@@ -6,5 +6,6 @@ import { PrismaExceptionHandlerService } from 'src/common';
 @Module({
   controllers: [TicketsController],
   providers: [TicketsService, PrismaExceptionHandlerService],
+  
 })
 export class TicketsModule {}

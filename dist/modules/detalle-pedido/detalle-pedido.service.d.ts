@@ -24,8 +24,8 @@ export declare class DetallePedidoService {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            numeroPedido: number;
             fechaHora: Date;
+            numeroPedido: number;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;
@@ -61,8 +61,8 @@ export declare class DetallePedidoService {
                 updatedAt: Date;
                 disponible: boolean;
                 estado: import("@prisma/client").$Enums.EstadoPedido;
-                numeroPedido: number;
                 fechaHora: Date;
+                numeroPedido: number;
                 numeroMesa: number | null;
                 clienteId: string;
                 sucursalId: string;
@@ -104,8 +104,8 @@ export declare class DetallePedidoService {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            numeroPedido: number;
             fechaHora: Date;
+            numeroPedido: number;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;

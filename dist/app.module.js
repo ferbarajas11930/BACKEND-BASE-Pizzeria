@@ -28,6 +28,8 @@ const cajas_module_1 = require("./modules/cajas/cajas.module");
 const empleados_module_1 = require("./modules/empleados/empleados.module");
 const detalle_pedido_module_1 = require("./modules/detalle-pedido/detalle-pedido.module");
 const pedidos_module_1 = require("./modules/pedidos/pedidos.module");
+const printer_module_1 = require("./modules/printer/printer.module");
+const tickets_report_module_1 = require("./modules/tickets-report/tickets-report.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -56,7 +58,9 @@ exports.AppModule = AppModule = __decorate([
             cajas_module_1.CajasModule,
             empleados_module_1.EmpleadosModule,
             detalle_pedido_module_1.DetallePedidoModule,
-            pedidos_module_1.PedidosModule
+            pedidos_module_1.PedidosModule,
+            tickets_report_module_1.TicketsReportModule,
+            printer_module_1.PrinterModule
         ],
         controllers: [],
         providers: [],

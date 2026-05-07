@@ -40,8 +40,8 @@ export declare class PedidosService {
         updatedAt: Date;
         disponible: boolean;
         estado: import("@prisma/client").$Enums.EstadoPedido;
-        numeroPedido: number;
         fechaHora: Date;
+        numeroPedido: number;
         numeroMesa: number | null;
         clienteId: string;
         sucursalId: string;
@@ -92,8 +92,8 @@ export declare class PedidosService {
             updatedAt: Date;
             disponible: boolean;
             estado: import("@prisma/client").$Enums.EstadoPedido;
-            numeroPedido: number;
             fechaHora: Date;
+            numeroPedido: number;
             numeroMesa: number | null;
             clienteId: string;
             sucursalId: string;
@@ -163,8 +163,8 @@ export declare class PedidosService {
             pedidoId: string;
             descuento: number;
             tarifaEnvio: number;
-            fechaHora: Date;
             numeroTicket: number;
+            fechaHora: Date;
             subtotal: number;
             iva: number;
             total: number;
@@ -175,8 +175,8 @@ export declare class PedidosService {
         updatedAt: Date;
         disponible: boolean;
         estado: import("@prisma/client").$Enums.EstadoPedido;
-        numeroPedido: number;
         fechaHora: Date;
+        numeroPedido: number;
         numeroMesa: number | null;
         clienteId: string;
         sucursalId: string;
@@ -188,8 +188,8 @@ export declare class PedidosService {
         updatedAt: Date;
         disponible: boolean;
         estado: import("@prisma/client").$Enums.EstadoPedido;
-        numeroPedido: number;
         fechaHora: Date;
+        numeroPedido: number;
         numeroMesa: number | null;
         clienteId: string;
         sucursalId: string;
@@ -201,8 +201,8 @@ export declare class PedidosService {
         updatedAt: Date;
         disponible: boolean;
         estado: import("@prisma/client").$Enums.EstadoPedido;
-        numeroPedido: number;
         fechaHora: Date;
+        numeroPedido: number;
         numeroMesa: number | null;
         clienteId: string;
         sucursalId: string;

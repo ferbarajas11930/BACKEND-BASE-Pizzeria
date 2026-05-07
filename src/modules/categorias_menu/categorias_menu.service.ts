@@ -2,7 +2,7 @@ import { HttpStatus, Injectable } from '@nestjs/common';
 import { CreateCategoriasMenuDto } from './Dto/create-categorias_menu.dto';
 import { UpdateCategoriasMenuDto } from './Dto/update-categorias_menu.dto';
 import { PrismaService } from 'src/database/prisma.service';
-import { PaginationDto, PrismaExceptionHandlerService } from 'src/common';
+import { PrismaExceptionHandlerService } from 'src/common';
 
 @Injectable()
 export class CategoriasMenuService {
@@ -57,16 +57,16 @@ export class CategoriasMenuService {
         return categoriaMenu;
     }
 
-      async update(id: string, updateCategoriasMenuDto: UpdateCategoriasMenuDto) {
-    try {
-        return await this.prisma.categoriaMenu.update({
-            where: { id },
-            data: updateCategoriasMenuDto,
-        })
-    } catch (error) {
-        return this.prismaExceptionHandlerService.handleDBException(error);
+    async update(id: string, updateCategoriasMenuDto: UpdateCategoriasMenuDto) {
+        try {
+            return await this.prisma.categoriaMenu.update({
+                where: { id },
+                data: updateCategoriasMenuDto,
+            })
+        } catch (error) {
+            return this.prismaExceptionHandlerService.handleDBException(error);
+        }
     }
-  }
 
     // 3. remove: Cambiar delete por update
     async remove(id: string) {

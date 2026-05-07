@@ -184,14 +184,14 @@ model Tickets {
   id           String   @id @default(uuid())
   numeroTicket Int      @unique @default(autoincrement())
   fechaHora    DateTime @default(now())
-  pedido       Pedidos  @relation(fields: [pedidoId], references: [id])
   pedidoId     String   @unique
+  pedido       Pedidos  @relation(fields: [pedidoId], references: [id])
   subtotal     Float
   iva          Float
   total        Float
   descuento    Float    @default(0)
   tarifaEnvio  Float    @default(0)
-  caja         Cajas?
+  caja         Cajas? 
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }

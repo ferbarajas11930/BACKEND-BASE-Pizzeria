@@ -20,6 +20,12 @@ let TicketsService = class TicketsService {
     }
     async create(createTicketDto) {
         try {
+            const ticketExistente = await this.prisma.tickets.findUnique({
+                where: { pedidoId: createTicketDto.pedidoId }
+            });
+            if (ticketExistente) {
+                throw new common_1.BadRequestException(`El pedido con ID ${createTicketDto.pedidoId} ya tiene un ticket generado.`);
+            }
             const pedido = await this.prisma.pedidos.findUnique({
                 where: { id: createTicketDto.pedidoId },
                 include: { detalles: true }
@@ -47,6 +53,9 @@ let TicketsService = class TicketsService {
             });
         }
         catch (error) {
+            if (error instanceof common_1.BadRequestException || error instanceof common_1.NotFoundException) {
+                throw error;
+            }
             return this.prismaExceptionHandler.handleDBException(error);
         }
     }

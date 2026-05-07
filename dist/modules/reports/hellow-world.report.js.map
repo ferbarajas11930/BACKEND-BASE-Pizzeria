@@ -1,0 +1,1 @@
+{"version":3,"file":"hellow-world.report.js","sourceRoot":"","sources":["../../../src/modules/reports/hellow-world.report.ts"],"names":[],"mappings":";;;AAMO,MAAM,mBAAmB,GAAG,CACjC,OAAsB,EACA,EAAE;IACxB,MAAM,EAAE,IAAI,EAAE,GAAG,OAAO,CAAC;IAEzB,MAAM,aAAa,GAAyB;QAC1C,OAAO,EAAE,CAAC,SAAS,IAAI,GAAG,CAAC;KAC5B,CAAC;IACF,OAAO,aAAa,CAAC;AACvB,CAAC,CAAC;AATW,QAAA,mBAAmB,uBAS9B"}
